@@ -11,7 +11,7 @@ public class LoadAssets : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
-        GameObject redInstance = Instantiate(redObj);
+        GameObject redInstance = Instantiate(redObj, new Vector3(2, 0, 0), Quaternion.identity);
         GameObject blueInstance = Instantiate(blueObj, new Vector3(-2, 0, 0), Quaternion.identity);
     }
 
