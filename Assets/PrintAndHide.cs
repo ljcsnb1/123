@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PrintAndHide : MonoBehaviour
 {
     public Renderer rend;
-    private int i = 3; // Initialize 'i' to 3
+    private int i = 4;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +18,13 @@ public class PrintAndHide : MonoBehaviour
     {
         Debug.Log(gameObject.name + ":" + i);
         i++;
-        if (i == 100)
+        if (gameObject.CompareTag("Red") && i == 100)
         {
-            rend.enabled = false; // Hide the renderer when 'i' reaches 100
+            gameObject.SetActive(false); // Deactivate the object with the "Red" tag when 'i' is 100
+        }
+        else if (gameObject.CompareTag("Blue") && i == Random.Range(150, 251))
+        {
+            rend.enabled = false; // Disable the renderer of the object with the "Blue" tag with a random 'i' value
         }
     }
 }
